@@ -1,28 +1,96 @@
-# Etapas de um projeto
+# Projeto Mini Rede Social
 
-Utilizado para grandes projetos, desenvolvimento de etapas de um projeto.
+Este é um projeto de API simples inspirado no Instagram, onde os usuários podem:
+* realizar postagens,
+* curtir postagens,
+* comentar
+* e muito mais.
+<br>
 
-* Problema (gerente de produto)
-* Solução
-* Layout (UX/UI)
-* Escopo
-* Desenvolvimento
-* Teste
+A API é construída usando Node.js, Express e PostgreSQL.
 
-## Escopo
+## Pré-requisitos
 
-Definição:
-* do que será feito,
-* como funciona o que será feito e
-* o que não será feito.
+Antes de começar, você precisa ter instalado em sua máquina:
 
-## Ferramenta
+- [Node.js](https://nodejs.org/)
+- [PostgreSQL](https://www.postgresql.org/)
 
-https://hackmd.io
-* Pode ser utilizada para escopar a API;
-* tem integração com GitHub.
+## Configuração do Banco de Dados
 
-# Escopando a API do Instagram
+1. Crie um banco de dados PostgreSQL.
+2. Crie as tabelas necessárias usando o arquivo `database.sql` fornecido.
+
+```
+psql -U SEU_USUARIO -d SUA_BASE_DE_DADOS -a -f caminho/do/arquivo/database.sql
+```
+
+## Configuração do Projeto
+
+1. Clone o repositório:
+
+```
+git clone https://github.com/seu-usuario/mini-instagram-api.git
+```
+
+2. Instale as dependências:
+
+```
+cd projeto-mini-rede-social
+npm install
+```
+
+3. Configure as variáveis de ambiente. Crie um arquivo `.env` na raiz do projeto e adicione as seguintes variáveis:
+
+```
+PORT=3000
+DB_HOST=localhost
+DB_PORT=5432
+DB_USER=seu-usuario-do-banco
+DB_PASS=sua-senha-do-banco
+DB_NAME=mini_insta
+JWT_SECRET=sua-chave-secreta-para-o-jwt
+```
+
+4. Inicie o servidor:
+
+```
+npm start
+```
+
+A API estará disponível em http://localhost:3000.
+
+---
+### Endpoints da API
+
+
+    POST /cadastro -> Cadastro de usuários.
+    POST /login -> Autenticação de usuários.
+    PUT /perfil -> Atualização do perfil do usuário.
+    PUT /cadastro -> Cadastro de novas postagens.
+    POST /postagens/:postagemId/curtir -> Curtir uma postagem.
+    POST /postagens/:postagemId/comentar -> Comentar em uma postagem.
+    GET /feed -> Obter o feed de postagens.
+
+---
+
+### Bibliotecas Utilizadas
+
+    bcrypt: ^5.1.1
+    cors: ^2.8.5
+    dotenv: ^16.3.1
+    express: ^4.18.2
+    jsonwebtoken: ^9.0.2
+    knex: ^3.0.1
+    pg: ^8.11.3
+
+Dependências de Desenvolvimento
+
+    nodemon: ^3.0.1
+
+<br>
+
+# Escopo da API Mini Rede Social
 
 ## O que o usuário por fazer:
 * fazer login
